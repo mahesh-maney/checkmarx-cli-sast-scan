@@ -2,6 +2,8 @@
 
 This action will run a Checkmarx SAST Scan via the Checkmarx CLI and generate a PDF report.  The options for this action have been tailored to `im-open`'s needs so not all [Checkmarx CLI options] have been enabled.
 
+## Index
+
 - [Usage](#usage)
   - [Excluding Files and Folders](#excluding-files-and-folders)
   - [Build Failures](#build-failures)
