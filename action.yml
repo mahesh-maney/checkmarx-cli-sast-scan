@@ -44,9 +44,9 @@ inputs:
     description: 'Comma separated list of file or folder name patterns that will be appended to the default list of patterns to exclude.'
     required: false
   checkmarx-cli-version:
-    description: 'The Checkmarx CLI version.  Defaults to 1.1.5.'
+    description: 'The Checkmarx CLI version.  Defaults to 1.1.9.'
     required: true
-    default: 1.1.5
+    default: 1.1.9
 
 outputs:
   report-path:
@@ -73,9 +73,12 @@ runs:
   steps:
     - name: Download checkmarx
       shell: bash
+      # The versions and format of the download url can be found here:
+      # https://checkmarx.atlassian.net/wiki/spaces/SD/pages/1514438908/CLI+Plugin+Change+Log
+      # https://checkmarx.com/plugins/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMTIyIiwidG9nZ2xlIjpmYWxzZX0%3D
       run: |
         echo "::group::Downloading the Checkmarx CLI into the ./cx-cli directory"
-        curl -LO "https://download.checkmarx.com/9.3.0GA/Plugins/CxConsolePlugin-${{ inputs.checkmarx-cli-version }}.zip"
+        curl -LO "https://download.checkmarx.com/9.4.0_GA/Plugins/CxConsolePlugin-${{ inputs.checkmarx-cli-version }}.zip"
         unzip -qq "CxConsolePlugin-${{ inputs.checkmarx-cli-version }}.zip" -d cx-cli
         rm -f "CxConsolePlugin-${{ inputs.checkmarx-cli-version }}.zip"
         echo "Download complete.  The current directory should now contain a cx-cli folder:"

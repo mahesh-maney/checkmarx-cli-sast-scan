@@ -95,7 +95,7 @@ This action is only configured to run SAST scans and from the [Checkmarx Documen
 | `break-build`           | false       | Flag indicating whether the build should break if any vulnerability threshold is exceeded.  Defaults to true.                  |
 | `comment`               | false       | Comment to add to the scan (shown in Checkmarx Portal).  Defaults to *<WorkflowName>* run #*<RunNumber>* on branch *<branch>*. |
 | `exclude-paths`         | false       | Comma separated list of file or folder name patterns that will be appended to the default list of patterns to exclude.         |
-| `checkmarx-cli-version` | false       | The Checkmarx CLI version.  Defaults to 1.1.5.                                                                                 |
+| `checkmarx-cli-version` | false       | The Checkmarx CLI version.  Defaults to 1.1.9.                                                                                 |
 
 ## Outputs
 
@@ -123,7 +123,7 @@ jobs:
       - name: Run Checkmarx with the defaults
         continue-on-error: true
         id: checkmarx
-        uses: im-open/checkmarx-cli-sast-scan@v1.0.1
+        uses: im-open/checkmarx-cli-sast-scan@v2.0.0
         with:
           checkmarx-server-url: ${{ secrets.CHECKMARX_URL }}
           checkmarx-username: ${{ secrets.CHECKMARX_USERNAME }} 
@@ -153,7 +153,7 @@ jobs:
 
       - name: Run Checkmarx with the defaults
         id: scan
-        uses: im-open/checkmarx-cli-sast-scan@v1.0.1
+        uses: im-open/checkmarx-cli-sast-scan@v2.0.0
         with:
           checkmarx-server-url: ${{ secrets.CHECKMARX_URL }}
           checkmarx-username: ${{ secrets.CHECKMARX_USERNAME }} 
@@ -167,7 +167,7 @@ jobs:
           break-build: true
           comment: 'Run from Github Actions'
           exclude-paths: '!**/modernizr-custom.js,!**/_ViewImports.cshtml,!**/.terraform/**/*'
-          checkmarx-cli-version: '1.1.0'
+          checkmarx-cli-version: '1.1.9'
       
       - name: Upload PDF Report  
         if: always()
