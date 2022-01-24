@@ -169,7 +169,7 @@ runs:
         med=$(echo $cxlog | grep -ioP 'Medium severity results: \K(\d{1,4})')
         low=$(echo $cxlog | grep -ioP 'Low severity results: \K(\d{1,4})')
         info=$(echo $cxlog | grep -ioP 'Information severity results: \K(\d{1,4})')
-        url=$(echo $cxlog | grep -ioP 'Scan results location: \K(https:+[^\s]+[\w])')
+        url=$(echo $cxlog | grep -ioP 'Scan results location: \K(http[s]*:+[^\s]+[\w])')
 
         echo "::set-output name=HIGH::$(echo $high)"
         echo "::set-output name=MED::$(echo $med)"
