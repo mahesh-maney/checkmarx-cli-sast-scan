@@ -171,11 +171,11 @@ runs:
         info=$(echo $cxlog | grep -ioP 'Information severity results: \K(\d{1,4})')
         url=$(echo $cxlog | grep -ioP 'Scan results location: \K(http[s]*:+[^\s]+[\w])')
 
-        echo "::set-output name=HIGH::$(echo $high)"
-        echo "::set-output name=MED::$(echo $med)"
-        echo "::set-output name=LOW::$(echo $low)"
-        echo "::set-output name=INFO::$(echo $info)"
-        echo "::set-output name=URL::$(echo $url)"
+        echo "HIGH=$(echo $high)" >> $GITHUB_OUTPUT
+        echo "MED=$(echo $med)" >> $GITHUB_OUTPUT
+        echo "LOW=$(echo $low)" >> $GITHUB_OUTPUT
+        echo "INFO=$(echo $info)" >> $GITHUB_OUTPUT
+        echo "URL=$(echo $url)" >> $GITHUB_OUTPUT
 
     - name: Move Report to Root
       shell: bash

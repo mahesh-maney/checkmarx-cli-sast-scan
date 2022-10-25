@@ -127,7 +127,7 @@ jobs:
       - name: Run Checkmarx with the defaults
         continue-on-error: true
         id: checkmarx
-        uses: im-open/checkmarx-cli-sast-scan@v2.0.2
+        uses: im-open/checkmarx-cli-sast-scan@v2.1.0
         with:
           checkmarx-server-url: ${{ secrets.CHECKMARX_URL }}
           checkmarx-username: ${{ secrets.CHECKMARX_USERNAME }}
@@ -157,7 +157,7 @@ jobs:
 
       - name: Run Checkmarx with the defaults
         id: scan
-        uses: im-open/checkmarx-cli-sast-scan@v2.0.2
+        uses: im-open/checkmarx-cli-sast-scan@v2.1.0
         with:
           checkmarx-server-url: ${{ secrets.CHECKMARX_URL }}
           checkmarx-username: ${{ secrets.CHECKMARX_USERNAME }}
